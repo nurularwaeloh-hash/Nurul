@@ -1,0 +1,280 @@
+/* --- การตั้งค่าพื้นฐาน (Reset & Global Styles) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ทำให้การคำนวณความกว้าง/สูง ง่ายขึ้น */
+}
+
+body {
+    font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit ที่โหลดมา */
+    background-color: #e0f2f7; /* สีพื้นหลังอ่อน ๆ สบายตาในโทนฟ้า */
+    color: #333; /* สีตัวอักษรหลัก */
+    line-height: 1.6;
+    display: flex; /* ใช้ flexbox เพื่อจัดเนื้อหากลางหน้าจอ */
+    justify-content: center; /* จัดเนื้อหาแนวนอนกลาง */
+    align-items: center; /* จัดเนื้อหาแนวตั้งกลาง */
+    min-height: 100vh; /* ความสูงขั้นต่ำเต็มหน้าจอ */
+    padding: 20px; /* เพิ่ม padding รอบด้าน */
+}
+
+/* --- โครงสร้างหลัก (Container) --- */
+.container {
+    max-width: 900px; /* จำกัดความกว้างของเนื้อหา */
+    width: 100%; /* ให้ใช้ความกว้างเต็มที่เท่าที่ max-width อนุญาต */
+    background-color: #fff; /* พื้นหลังของเนื้อหาเป็นสีขาว */
+    border-radius: 15px; /* มุมโค้งมนสวยงาม */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* เงาเพื่อความลึกที่โดดเด่นขึ้น */
+    padding: 30px 40px; /* เพิ่ม padding ด้านข้างเล็กน้อย */
+    animation: fadeIn 1s ease-out; /* เพิ่มอนิเมชั่น fade-in */
+}
+
+/* --- อนิเมชั่น Fade In --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ส่วนหัว (Header) --- */
+header {
+    text-align: center;
+    padding: 20px 0 30px;
+    border-bottom: 3px solid #00aaff; /* เส้นแบ่งสีฟ้าสดใส */
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.8em; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    color: #007bff; /* สีน้ำเงินหลัก */
+    margin-top: 15px;
+    font-weight: 700;
+    letter-spacing: 1px; /* เพิ่มระยะห่างตัวอักษร */
+}
+
+.nickname {
+    font-size: 1.3em;
+    color: #6c757d;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+/* --- รูปโปรไฟล์ (Profile Image) --- */
+.profile-img-container {
+    width: 180px; /* ขนาดรูปใหญ่ขึ้น */
+    height: 180px; /* ขนาดรูปใหญ่ขึ้น */
+    margin: 0 auto 25px; /* จัดกึ่งกลางและมีระยะห่างด้านล่าง */
+    overflow: hidden;
+    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+    border: 6px solid #fff; /* ขอบสีขาว */
+    box-shadow: 0 0 0 4px #00aaff, 0 8px 15px rgba(0, 0, 0, 0.2); /* ขอบสีฟ้าและเงาที่ชัดเจน */
+    transition: transform 0.3s ease-in-out; /* เพิ่มอนิเมชั่นเมื่อ hover */
+}
+
+.profile-img-container:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ทำให้รูปภาพเต็มพื้นที่โดยไม่ผิดสัดส่วน */
+}
+
+/* --- ส่วนเนื้อหา (Sections) --- */
+.section {
+    padding: 25px 0;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #e0e0e0; /* เส้นประแบ่งส่วน */
+}
+
+.section:last-child {
+    border-bottom: none; /* ไม่ต้องมีเส้นประในส่วนสุดท้าย */
+}
+
+.section h2 {
+    font-size: 2em; /* ขนาดใหญ่ขึ้น */
+    color: #343a40;
+    border-left: 6px solid #00aaff; /* เน้นด้วยเส้นแนวตั้งสีฟ้าสดใส */
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    display: flex; /* ใช้ flexbox เพื่อจัดไอคอน */
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างข้อความกับไอคอน */
+}
+
+.section h3 {
+    color: #007bff;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+/* --- ข้อมูลส่วนตัวและการศึกษา (Info & Education) --- */
+.info-group {
+    padding: 10px 0;
+}
+
+.info-group ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* แบ่งคอลัมน์อัตโนมัติให้กว้างขึ้น */
+    gap: 15px; /* เพิ่มระยะห่าง */
+}
+
+.info-group ul li {
+    background-color: #e9f7ff; /* สีพื้นหลังอ่อน ๆ */
+    padding: 12px 20px;
+    border-radius: 8px; /* มุมโค้งมนมากขึ้น */
+    font-weight: 400;
+    color: #1a4f78;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* เพิ่มเงาเล็กน้อย */
+}
+
+.info-group ul li strong { /* ทำให้หัวข้อข้อมูลหนาขึ้น */
+    margin-right: 5px;
+    color: #0056b3;
+}
+
+
+.education-item {
+    border-left: 4px solid #6c757d;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease; /* เพิ่มอนิเมชั่น */
+}
+
+.education-item:hover {
+    background-color: #f8f9fa; /* เปลี่ยนพื้นหลังเล็กน้อยเมื่อ hover */
+    transform: translateX(5px); /* เลื่อนเล็กน้อยเมื่อ hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.education-item h4 {
+    margin: 0 0 5px 0;
+    color: #343a40;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.education-item p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+/* --- ทักษะ (Skills) --- */
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* เพิ่มระยะห่างระหว่างรายการ */
+}
+
+.skills-list li {
+    background-color: #28a745; /* สีเขียวสำหรับทักษะ */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px; /* ทำให้เป็นรูปแคปซูลที่โค้งมนมากขึ้น */
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #218838; /* สีเขียวเข้มขึ้นเมื่อ hover */
+    transform: translateY(-3px); /* เลื่อนขึ้นเล็กน้อยเมื่อ hover */
+}
+
+/* --- ติดต่อ (Contact) --- */
+.contact-links p {
+    margin-bottom: 12px;
+    font-size: 1.15em;
+    display: flex; /* จัดไอคอนกับข้อความ */
+    align-items: center;
+    gap: 8px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+}
+
+.contact-links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* --- ส่วนท้าย (Footer) --- */
+footer {
+    text-align: center;
+    padding: 25px 0 0;
+    border-top: 1px solid #dee2e6;
+    margin-top: 30px;
+    font-size: 0.95em;
+    color: #6c757d;
+}
+
+/* --- Responsive Design (ปรับให้เหมาะสมกับมือถือ) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start; /* ปรับให้เนื้อหาชิดด้านบนในมือถือ */
+    }
+    .container {
+        margin: 20px 0;
+        padding: 25px;
+    }
+    header h1 {
+        font-size: 2.2em;
+    }
+    .profile-img-container {
+        width: 140px;
+        height: 140px;
+    }
+    .section h2 {
+        font-size: 1.7em;
+        padding-left: 10px;
+    }
+    .info-group ul {
+        grid-template-columns: 1fr; /* ให้แสดงเป็นคอลัมน์เดียวในมือถือ */
+    }
+    .skills-list li {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .contact-links p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    .profile-img-container {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    .section h2 {
+        font-size: 1.5em;
+    }
+    .info-group ul li, .education-item h4, .contact-links p {
+        font-size: 0.95em;
+    }
+}
